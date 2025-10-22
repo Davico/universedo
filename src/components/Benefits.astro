@@ -1,20 +1,50 @@
 ---
 const benefits = [
-    { icon: '👥', title: 'Attract Clients', desc: 'Stop relying on word-of-mouth alone. A professional website brings you qualified leads 24/7.' },
-    { icon: '⭐', title: 'Build Credibility', desc: 'Your online presence is your first impression. Stand out from competitors with a polished, professional site.' },
-    { icon: '💼', title: 'Boost Conversions', desc: 'Clear messaging + strategic design = more bookings. Turn visitors into paying clients.' },
-    { icon: '📱', title: 'Mobile Ready', desc: 'Your website works flawlessly on all devices, so clients can find you anytime, anywhere.' },
-    { icon: '🚀', title: 'Fast & Future-Proof', desc: 'Built with modern technology for speed, security, and ease of updates as your business grows.' },
-    { icon: '🎯', title: 'Focused on Results', desc: 'Every design choice is made with one goal: helping you grow your business and impact.' },
+    { 
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+        color: '#6BBF3A',
+        title: 'Attract Clients', 
+        desc: 'Stop relying on word-of-mouth alone. A professional website brings you qualified leads 24/7.' 
+    },
+    { 
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+        color: '#6BBF3A',
+        title: 'Build Credibility', 
+        desc: 'Your online presence is your first impression. Stand out from competitors with a polished, professional site.' 
+    },
+    { 
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+        color: '#5aa82f',
+        title: 'Boost Conversions', 
+        desc: 'Clear messaging + strategic design = more bookings. Turn visitors into paying clients.' 
+    },
+    { 
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>`,
+        color: '#4a9025',
+        title: 'Mobile Ready', 
+        desc: 'Your website works flawlessly on all devices, so clients can find you anytime, anywhere.' 
+    },
+    { 
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
+        color: '#7CD84A',
+        title: 'Fast & Future-Proof', 
+        desc: 'Built with modern technology for speed, security, and ease of updates as your business grows.' 
+    },
+    { 
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
+        color: '#8FE85F',
+        title: 'Focused on Results', 
+        desc: 'Every design choice is made with one goal: helping you grow your business and impact.' 
+    },
 ];
 ---
 
 <section class="benefits">
-    <h2 class="section-title">Why Coaches & other Pros Need a Professional Website</h2>
+    <h2 class="section-title">Why Coaches & Wellness Pros Need a Professional Website</h2>
     <div class="benefits-grid">
         {benefits.map(benefit => (
             <div class="benefit-card">
-                <div class="benefit-icon">{benefit.icon}</div>
+                <div class="benefit-icon" style={`color: ${benefit.color}`} set:html={benefit.icon}></div>
                 <h3>{benefit.title}</h3>
                 <p>{benefit.desc}</p>
             </div>
@@ -26,6 +56,11 @@ const benefits = [
     .benefits {
         background: white;
         padding: 4rem 2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    html.dark .benefits {
+        background: var(--bg-primary);
     }
 
     .section-title {
@@ -49,35 +84,58 @@ const benefits = [
     .benefit-card {
         padding: 2rem;
         background: var(--color-bg-light);
-        border-radius: 8px;
+        border-radius: 12px;
         border-left: 4px solid var(--color-primary);
         transition: all 0.3s;
+        box-shadow: var(--shadow-sm);
     }
 
     .benefit-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(107, 191, 58, 0.1);
+        box-shadow: 0 10px 30px rgba(107, 191, 58, 0.15);
+        border-left-width: 6px;
     }
 
     .benefit-icon {
-        font-size: 2.5rem;
+        width: 40px;
+        height: 40px;
         margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover .benefit-icon {
+        transform: scale(1.1);
+    }
+
+    .benefit-icon :global(svg) {
+        width: 100%;
+        height: 100%;
     }
 
     .benefit-card h3 {
-        color: var(--color-primary);
+        color: var(--text-primary);
         margin-bottom: 0.5rem;
         font-size: 1.3rem;
+        font-weight: 600;
     }
 
     .benefit-card p {
-        color: var(--color-text-light);
+        color: var(--text-secondary);
         line-height: 1.7;
     }
 
     @media (max-width: 768px) {
+        .benefits {
+            padding: 2rem 1rem;
+        }
+
         .section-title {
             font-size: 1.5rem;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
         }
     }
 </style>
