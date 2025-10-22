@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent.astro';
+import StructuredData from '../components/StructuredData.astro';
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { 
+    title,
+    description = "Professional website development for coaches and wellness professionals. Fast, affordable, results-driven web presence that attracts clients."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>{title}</title>
+        <StructuredData />
+    </head>
+    <body>
+        <slot />
+        <CookieConsent />
+    </body>
+</html>

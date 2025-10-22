@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://universedo.com/sitemap-index.xml

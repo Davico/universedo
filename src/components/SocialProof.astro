@@ -1,0 +1,60 @@
+---
+const proofs = [
+    { number: '14+', label: 'Years Experience' },
+    { number: '100%', label: 'Client Satisfaction' },
+    { number: '3x', label: 'Avg. Client Growth' }
+];
+---
+
+<section class="social-proof">
+    <h2 class="section-title">Proven Results</h2>
+    <div class="proof-items">
+        {proofs.map(proof => (
+            <div class="proof-item">
+                <div class="proof-number">{proof.number}</div>
+                <div class="proof-label">{proof.label}</div>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .social-proof {
+        background: var(--color-bg-light);
+        padding: 3rem 2rem;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        color: var(--color-dark);
+    }
+
+    .proof-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .proof-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .proof-number {
+        font-size: 2.5rem;
+        color: var(--color-primary);
+        font-weight: 700;
+    }
+
+    .proof-label {
+        color: var(--color-text-light);
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+    }
+</style>

@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #6BBF3A;
+    --color-primary-dark: #5aa82f;
+    --color-dark: #1a1a1a;
+    --color-text: #333;
+    --color-text-light: #666;
+    --color-border: #f0f0f0;
+    --color-bg-light: #f9f9f9;
+    --color-bg-hero-start: #ffffff;
+    --color-bg-accent: #f0f8e8;
+
+    /* Additional light mode colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9f9f9;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+html.dark {
+    /* Dark mode */
+    --color-dark: #b9b9b9;
+    --color-text: #e0e0e0;
+    --color-text-light: #a0a0a0;
+    --color-border: #333;
+    --color-bg-light: #1a1a1a;
+    --color-bg-hero-start: #2a2a2a;
+    --color-bg-accent: #2a2a2a;
+    
+    /* Additional dark mode colors */
+    --bg-primary: #121212;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--color-text);
+    background: #fff;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}

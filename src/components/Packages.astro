@@ -1,0 +1,180 @@
+---
+const packages = [
+    {
+        name: 'Starter (just web development)',
+        price: '€200',
+        featured: false,
+        features: [
+            'Professional Landing Page',
+            'Mobile Responsive Design',
+            'Contact Form Integration',
+            'SEO Optimized',
+            'Social Links'
+        ]
+    },
+    {
+        name: 'Growth',
+        price: '€400',
+        featured: true,
+        features: [
+            'All from Starter, plus:',
+            'up to 5 Custom Pages',
+            'Domain and Hosting Setup - first year included',
+            'Professional Email Setup',
+            'Personalized Support',
+            '3 small updates per month, e.g. text changes, images, new blog post'
+        ]
+    },
+    {
+        name: 'Premium',
+        price: 'on request',
+        featured: false,
+        features: [
+            '5-7 Pages + More',
+            'Advanced Integrations',
+            'Email Marketing Setup',
+            'Advanced Analytics',
+            'Ongoing Support'
+        ]
+    }
+];
+---
+
+<section class="packages" id="packages">
+    <h2>Choose Your Perfect Package</h2>
+    <div class="packages-grid">
+        {packages.map(pkg => (
+            <div class={`package-card ${pkg.featured ? 'featured' : ''}`}>
+                {pkg.featured && <div class="featured-badge">Most Popular</div>}
+                <h3 class="package-name">{pkg.name}</h3>
+                <div class="package-price">{pkg.price}</div>
+                <ul class="package-features">
+                    {pkg.features.map(feature => (
+                        <li>{feature}</li>
+                    ))}
+                </ul>
+                <a href="mailto:office.universedo@gmail.com" target="_blank" class="primary-cta">
+                    Get Started
+                </a>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .packages {
+        background: linear-gradient(135deg, var(--color-bg-accent) 0%, #ffffff 100%);
+        padding: 4rem 2rem;
+    }
+
+    .packages h2 {
+        font-size: 2.5rem;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .package-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+        border-top: 4px solid var(--color-border);
+        position: relative;
+    }
+
+    .package-card.featured {
+        border-top: 4px solid var(--color-primary);
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(107, 191, 58, 0.2);
+    }
+
+    .package-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--color-primary);
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .package-name {
+        font-size: 1.4rem;
+        color: var(--color-dark);
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+
+    .package-price {
+        font-size: 2rem;
+        color: var(--color-primary);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .package-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+    }
+
+    .package-features li {
+        padding: 0.6rem 0;
+        border-bottom: 1px solid var(--color-border);
+        color: var(--color-text-light);
+        display: flex;
+        align-items: center;
+    }
+
+    .package-features li:before {
+        content: "✓";
+        color: var(--color-primary);
+        font-weight: 700;
+        margin-right: 0.8rem;
+        font-size: 1.2rem;
+    }
+
+    .primary-cta {
+        width: 100%;
+        display: block;
+        text-align: center;
+        background: var(--color-primary);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+    .primary-cta:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(107, 191, 58, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .package-card.featured {
+            transform: scale(1);
+        }
+    }
+</style>

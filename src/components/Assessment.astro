@@ -1,0 +1,122 @@
+---
+---
+
+<section class="assessment" id="assessment">
+    <div class="assessment-content">
+        <div class="assessment-text">
+            <h2>Understand Your Digital Needs</h2>
+            <p>Not sure which package is right for you? Take our free assessment to discover what your business needs to succeed online.</p>
+            <p>This 5-minute quiz helps us understand your goals, current challenges, and ideal outcome. You'll get personalized insights + 3 actionable tips delivered to your inbox.</p>
+            <a href="#assessment" class="primary-cta">Take the Free Assessment →</a>
+        </div>
+        <div class="assessment-preview">
+            <h3>Free Assessment Includes:</h3>
+            <p>Powered by smart questions about your business</p>
+            <div class="preview-box">
+                <p>✓ Personalized Report</p>
+                <p>✓ Your Digital Roadmap</p>
+                <p>✓ 3 Actionable Tips</p>
+            </div>
+            <button class="cta-button">Start Now (Free)</button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .assessment {
+        background: white;
+        padding: 4rem 2rem;
+    }
+
+    .assessment-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .assessment-text h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--color-dark);
+    }
+
+    .assessment-text p {
+        color: var(--color-text-light);
+        margin-bottom: 1rem;
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+
+    .primary-cta {
+        display: inline-block;
+        background: var(--color-primary);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+    .primary-cta:hover {
+        background: var(--color-primary-dark);
+        box-shadow: 0 6px 20px rgba(107, 191, 58, 0.4);
+        transform: translateY(-3px);
+    }
+
+    .assessment-preview {
+        background: var(--color-bg-light);
+        padding: 2rem;
+        border-radius: 8px;
+        border: 2px dashed var(--color-primary);
+        text-align: center;
+    }
+
+    .assessment-preview h3 {
+        color: var(--color-primary);
+        margin-bottom: 1rem;
+    }
+
+    .assessment-preview p {
+        color: #999;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
+
+    .preview-box {
+        background: white;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 1.5rem;
+        color: var(--color-text-light);
+    }
+
+    .preview-box p {
+        font-style: normal;
+        margin-bottom: 0.5rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        background: var(--color-primary);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+        background: var(--color-primary-dark);
+    }
+
+    @media (max-width: 768px) {
+        .assessment-content {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
