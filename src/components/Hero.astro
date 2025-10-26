@@ -1,26 +1,12 @@
 ---
-interface Props {
-    content: {
-        title: string;
-        titleHighlight: string;
-        titleEnd: string;
-        description: string;
-        primaryCTA: string;
-        secondaryCTA: string;
-    };
-    lang?: 'en' | 'sr';
-}
-
-const { content, lang = 'en' } = Astro.props;
-const basePath = lang === 'sr' ? '/sr' : '';
 ---
 
 <section class="hero">
     <div class="hero-content">
-        <h1>{content.title} <span class="highlight">{content.titleHighlight}</span> {content.titleEnd}</h1>
-        <p>{content.description}</p>
+        <h1>Build Your <span class="highlight">Professional Web Presence</span> So You Can Focus on What You Do Best</h1>
+        <p>We help coaches, wellness trainers, and other professionals establish a powerful online presence that attracts clients and builds credibility.</p>
         <div class="hero-ctas">
-            <a href="mailto:office.universedo@gmail.com" target="_blank" class="primary-cta">{content.primaryCTA} </a>
+            <a href="mailto:office.universedo@gmail.com" target="_blank" class="primary-cta">Book a Strategy Call →</a>
             <!--<a href="#assessment" class="secondary-cta">Take the Free Assessment</a> -->
         </div>
     </div>
