@@ -7,14 +7,18 @@ import Packages from '../components/Packages.astro';
 import AboutUs from '../components/AboutUs.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Footer from '../components/Footer.astro';
+import { content } from '../data/content';
+
+const lang = 'en';
+const t = content[lang]
 ---
 
 <Layout 
     title="UniverseDo - Professional Websites for Coaches & Wellness Pros"
     description="Transform your coaching or wellness business with a professional website. Fast delivery, affordable packages, results-driven design. Book your free strategy call today."
 >
-    <Navigation />
-    <Hero />
+    <Navigation lang={lang} labels={t.nav} />
+    <Hero content={t.hero} lang={lang} />
     <Benefits />
     <Packages />
     <AboutUs />

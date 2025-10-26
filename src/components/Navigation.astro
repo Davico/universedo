@@ -1,5 +1,19 @@
 ---
-import ThemeSwitcher from "./ThemeSwitcher.astro"
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+    lang?: 'en' | 'sr';
+    labels: {
+        packages: string;
+        about: string;
+        testimonials: string;
+        bookCall: string;
+    };
+}
+
+const { lang = 'en', labels } = Astro.props;
+const basePath = lang === 'sr' ? '/sr' : '';
 ---
 
 <nav>
@@ -19,12 +33,13 @@ import ThemeSwitcher from "./ThemeSwitcher.astro"
 
         <div class="nav-menu" id="navMenu">
             <ul class="nav-links">
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href={`${basePath}#packages`} class="nav-link">{labels.packages}</a></li>
+                <li><a href={`${basePath}#about`} class="nav-link">{labels.about}</a></li>
+                <li><a href={`${basePath}#testimonials`} class="nav-link">{labels.testimonials}</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="mailto:office.universedo@gmail.com" target="_blank" class="cta-button">Book a Call</a>
+                <a href="mailto:office.universedo@gmail.com" target="_blank" class="cta-button">{labels.bookCall}</a>
+                <LanguageSwitcher currentLang={lang} />
                 <ThemeSwitcher />
             </div>
         </div>
