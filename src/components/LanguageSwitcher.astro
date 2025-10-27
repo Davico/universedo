@@ -1,0 +1,82 @@
+---
+interface Props {
+    currentLang: 'en' | 'sr';
+}
+
+const { currentLang } = Astro.props;
+
+const languages = {
+    en: { name: 'EN', url: '/', flag: '🇬🇧' },
+    sr: { name: 'SR', url: '/sr/', flag: '🇷🇸' }
+};
+---
+
+<div class="language-switcher">
+    {Object.entries(languages).map(([code, lang]) => (
+        <a 
+            href={lang.url} 
+            class={`lang-link ${currentLang === code ? 'active' : ''}`}
+            aria-label={`Switch to ${lang.name}`}
+        >
+            <span class="flag">{lang.flag}</span>
+            <span class="lang-code">{lang.name}</span>
+        </a>
+    ))}
+</div>
+
+<style>
+    .language-switcher {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .lang-link {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        background: var(--color-bg-light);
+        border: 2px solid var(--color-border);
+        transition: all 0.3s;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+
+    .lang-link:hover {
+        background: var(--color-bg-accent);
+        border-color: var(--color-primary);
+        color: var(--text-primary);
+        transform: translateY(-2px);
+    }
+
+    .lang-link.active {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+    }
+
+    .flag {
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+
+    .lang-code {
+        line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+        .language-switcher {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .lang-link {
+            flex: 1;
+            justify-content: center;
+        }
+    }
+</style>
